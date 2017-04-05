@@ -24,9 +24,11 @@ class tourTable {
 				var match = $('<ul class="matchup" data-match-id="'+ index_match +'"><li class="team team-top" data-team-id="'+ team_match.team1id +'">'+ team_match.team1name +'</li><li class="team team-bottom" data-team-id="'+ team_match.team2id +'">'+ team_match.team2name +'</li></ul>');
 				if(winner == team_match.team1id){
 					match.find('.team-top').addClass('winner');
+					match.find('.team-top').append('<span class="score">Winner</span>');
 				}
 				if(winner == team_match.team2id){
 					match.find('.team-bottom').addClass('winner');
+					match.find('.team-bottom').append('<span class="score">Winner</span>');
 				}
 
 				match.on('click', '.team', function(){

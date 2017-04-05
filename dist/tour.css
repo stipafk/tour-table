@@ -11,7 +11,7 @@ body {font-family: 'Istok Web', sans-serif;background: url("http://picjumbo.com/
 .split {display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;width: 42%;-webkit-flex-direction:row;-moz-flex-direction:row;flex-direction:row;}
 .champion {float:left;display:block;width: 16%;-webkit-flex-direction:row;flex-direction:row;-webkit-align-self:center;align-self:center;margin-top: -15px;text-align: center;padding: 230px 0\9;} 
 .champion i {color: #a0a6a8; font-size: 45px;padding: 10px 0; }
-.round {display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;width:95%;width:30.8333%\9;}
+.round {margin: 10px;display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;width:95%;width:30.8333%\9;}
 .split-two {}
 .split-one .round {margin: 0 2.5% 0 0;}
 .split-two .round {margin: 0 0 0 2.5%;}

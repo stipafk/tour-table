@@ -33,10 +33,48 @@ class tourTable {
 					var round_id = $(this).parents('.round').data('round-id');
 					var match_id = $(this).parents('.matchup').data('match-id');
 					var team_id = $(this).data('team-id');
+					var countWiner = 0;
 					if($(this).hasClass('winner')){
 						that.structure[round_id][match_id].winner = '';
 					}else{
 						that.structure[round_id][match_id].winner = $(this).data('team-id');
+						for (let i = 0; i < that.structure[round_id].length; i++){
+							if (that.structure[round_id][i].winner){
+								countWiner++;
+							}
+						}
+						if(countWiner == that.structure[round_id].length && countWiner != 1){
+							that.structure[round_id+1] = [];
+							for (var i = round_id+1; i < that.structure.length; i++){ // чистим все следуйщие масивы от игр
+								that.structure[i] = [];
+							}
+							var allWinner = [];
+							for (var i = 0; i < countWiner; i++){ // добавляем победителей в масив
+								if(that.structure[round_id][i].winner == that.structure[round_id][i].team1id){
+									var team = {
+										id: that.structure[round_id][i].team1id,
+										name: that.structure[round_id][i].team1name
+									}
+									allWinner.push(team);
+								}else {
+									var team = {
+										id: that.structure[round_id][i].team2id,
+										name: that.structure[round_id][i].team2name
+									}
+									allWinner.push(team);
+								}
+							}
+							for(var i = 0; i < allWinner.length; i++){ // добавляем команду
+								var team = {
+									team1id: allWinner[i].id,
+									team1name: allWinner[i].name,
+									team2name: allWinner[i+1].name,
+									team2id: allWinner[i+1].id
+								}
+								i++;
+								that.structure[round_id+1].push(team)
+							}
+						}
 						if(round_id != 0){
 							for (let i = 0; i < round_id; i++){
 								var round_id_change = that.container.find('.round-' + that.intToString(i)).find('li[data-team-id='+ team_id +']').parents('.round').data('round-id');
@@ -52,9 +90,7 @@ class tourTable {
 					var round_id = $(this).parents('.round').data('round-id');
 					var match_id = $(this).parents('.matchup').data('match-id');
 					var team_id = $(this).data('team-id');
-					if($(this).hasClass('winner')){
-						$(this).addClass('hover');
-					}
+					$(this).addClass('hover');
 					if(round_id != 0){
 						for (let i = 0; i < round_id; i++){
 							that.container.find('.round-' + that.intToString(i)).find('li[data-team-id='+ team_id +']').addClass('hover');
@@ -65,9 +101,7 @@ class tourTable {
 					var round_id = $(this).parents('.round').data('round-id');
 					var match_id = $(this).parents('.matchup').data('match-id');
 					var team_id = $(this).data('team-id');
-					if($(this).hasClass('winner')){
-						$(this).removeClass('hover');
-					}
+					$(this).removeClass('hover');
 					if(round_id != 0){
 						for (let i = 0; i < round_id; i++){
 							that.container.find('.round-' + that.intToString(i)).find('li[data-team-id='+ team_id +']').removeClass('hover');

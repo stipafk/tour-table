@@ -19,7 +19,8 @@ body {font-family: 'Istok Web', sans-serif;background: url("http://picjumbo.com/
 .score {font-size: 11px;text-transform: uppercase;float: right;color: #2C7399;font-weight: bold;font-family: 'Roboto Condensed', sans-serif;position: absolute;right: 5px;}
 .team {padding: 0 5px;margin: 3px 0;height: 25px; line-height: 25px;white-space: nowrap; overflow: hidden;position: relative;cursor:pointer;}
 .team.winner {background-color: #fff;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);opacity: 1;}
-.team.hover {background-color: #c4e3f3;opacity: 1;}
+.team.hover {background-color: #c4e3f3 !important;opacity: 1 !important; -webkit-animation: pulse 0.5s; animation: pulse 0.5s;}
+.team.myTeam {background-color: #bcd0fe;opacity: 0.6;}
 .round-two .matchup {margin:0; height: 60px;padding: 50px 0;}
 .round-three .matchup {margin:0; height: 60px; padding: 130px 0;}
 .round-four .matchup {margin:0; height: 60px; padding: 290px 0;}

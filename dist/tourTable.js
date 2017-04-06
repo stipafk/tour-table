@@ -34,6 +34,12 @@ class tourTable {
 					match.find('.team-bottom').addClass('winner');
 					match.find('.team-bottom').append('<span class="score">Winner</span>');
 				}
+				if(team_match.team1id == that.options.myTeam){
+					match.find('.team-top').addClass('myTeam');
+				}
+				if(team_match.team2id == that.options.myTeam){
+					match.find('.team-bottom').addClass('myTeam');
+				}
 
 				if(that.options && that.options.permission && that.options.permission == 'administrator' || that.options.permission == 'moderator'){
 					match.on('click', '.team', function(){

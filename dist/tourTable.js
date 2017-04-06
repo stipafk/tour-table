@@ -129,7 +129,11 @@ class tourTable {
 		})
 
 		that.container.append(split);
-		$('body').append(that.container);
+		if(that.options.container){
+			that.options.container.append(that.container);
+		}else {
+			$('body').append(that.container);
+		}
 	}
 	intToString(int){
 		var masive = ['one','two', 'three', 'four', 'five']
